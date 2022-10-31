@@ -4,16 +4,19 @@
 //First, create the method
 function replaceSpaces(string){
   //solve this if it was just one space
-  console.log(string);
+  let str = '';
   
   for (let x = 0; x < string.length; x++){
-    console.log("string[x]: ", string[x]);
-    if (string[x] === " "){
-      console.log('matches: ');
-      string.setCharAt(x, 0, '%$20');
+    if (string[x] === ' ' && string[x+1] !== ' ' && string[x+1] !== undefined){
+      str += '%20';
+    } else {
+      if (string[x] === ' '){
+        continue;
+      }
+      str += string[x];
     }
-    console.log("string in loop: ", string);
   }
+  return str;
 }
 
 console.log(replaceSpaces("Mr John Smith     "));
